@@ -6,228 +6,280 @@
   <title>倒反的秩序：密室逃脫計畫</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Microsoft JhengHei', sans-serif;
-      background-color: #111;
-      color: #ddd;
+        margin: 0;
+        font-family: 'Microsoft JhengHei', sans-serif;
+        background-color: #111;
+        color: #bdbdbd;
+        line-height: 1.6;
     }
 
+    /* 標題區塊 */
     header {
-      position: relative;
-      background: url('images/The-Lie-of-Order.jpg') no-repeat center center/cover;
-      height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-    }
-
-    header h1,
-    header p {
-      z-index: 1;
+        position: relative;
+        background: url('images/header-bg.jpg') no-repeat center center/cover;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        padding: 2rem;
+        font-size: 2.5rem;
     }
 
     header h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
+        font-size: 3.5rem;
+        margin: 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
     header p {
-      font-size: 1.2rem;
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        font-weight: lighter;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
 
+    /* 導覽列 */
     nav {
-      background-color: #222;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
+        background-color: #222;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     }
 
     nav a {
-      color: #aaa;
-      text-decoration: none;
-      font-weight: bold;
+        font-size: 1.2rem;
+        color: #aaa;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        transition: color 0.3s, background-color 0.3s;
     }
 
     nav a:hover {
-      color: #fff;
+        color: #fff;
+        background-color: #444;
+        border-radius: 4px;
     }
 
+    h2{
+        font-size: 2rem;
+    }
+
+    b {
+        font-size: 1.2rem;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+        margin: 1em 0px;
+        padding: 0px 0px 0px 1em;
+        border-left: 5px solid gray;
+    }
+
+    /* 區塊分隔線 */
+    .section-divider {
+        scroll-margin-top: 100px; /* 根據 nav 的高度來調整，這裡假設 nav 高度約為 100px */
+        background-color: rgba(0, 0, 0, 0.5);
+        height: 150px;
+        text-align: center;
+        padding-top: 1.8rem;
+        margin-top: 80px;
+        font-size: 2rem;
+        color: #fff;
+    }
+
+    /* 區塊內文 */
     section {
-      padding: 2rem 1.5rem;
-      max-width: 900px;
-      margin: auto;
+        padding: 2rem;
+        margin: auto;
+        max-width: 800px;
     }
 
-    h2 {
-      color: #fff;
-      border-bottom: 2px solid #444;
-      padding-bottom: 0.5rem;
+    section h2 {
+        font-size: 2.5rem;
+        border-bottom: 2px solid #444;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
     }
 
-    .scene-img {
-      width: 100%;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #000;
+    section p {
+        font-size: 1.2rem;
+        margin-bottom: 1.2rem;
     }
 
-    iframe {
-      width: 100%;
-      height: 500px;
-      border: none;
-      background-color: #000;
-      margin-top: 1rem;
+    section h3 {
+        font-size: 1.8rem;
+        margin-top: 1.5rem;
     }
 
-    .dev-note {
-      background-color: #1f1f1f;
-      border-left: 4px solid #555;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 4px;
-    }
-
-    .outro-section {
-      background: url('images/outro.jpg') no-repeat center center/cover;
-      color: white;
-      padding: 5rem 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .outro-section::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.65);
-    }
-
-    .outro-section h2,
-    .outro-section p {
-      position: relative;
-      z-index: 1;
-    }
-
-    .credits {
-      background: url('images/outro-next.jpg') no-repeat center center/cover;
-      color: #eee;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .credits::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.7);
-    }
-
-    .credits h2,
-    .credits p,
+    /* 素材來源區塊 */
     .credits ul {
-      position: relative;
-      z-index: 1;
-    }
-
-    .credits ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem;
+        padding-left: 2rem;
     }
 
     .credits li {
-      margin: 0.5rem 0;
+        margin-bottom: 0.5rem;
     }
 
+    details {
+        border: 1px solid #999;
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #1e1e1e;
+        color: #ddd;
+        margin: 10px 0;
+    }
+
+    summary {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.1em;
+    }
+
+    /* 頁腳 */
     footer {
-      background-color: #1a1a1a;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-      border-top: 1px solid #333;
+        background-color: #222;
+        color: #aaa;
+        text-align: center;
+        padding: 1rem;
+        font-size: 1rem;
     }
 
-    a {
-      color: #88c0d0;
+    footer a {
+        color: #aaa;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        color: #fff;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>倒反的秩序：密室逃脫計畫</h1>
-    <p>一場心理與秩序的拉鋸，一次虛實交織的密室體驗。</p>
-  </header>
+    <!-- 標題區塊 -->
+    <header class="header-banner">
+        <h1>倒反的秩序：密室逃脫計畫</h1>
+        <p>一場心理與秩序的拉鋸，一次虛實交織的密室體驗。</p>
+    </header>
 
-  <nav>
-    <a href="#novel">小說</a>
-    <a href="#game">遊戲</a>
-    <a href="#dev">心得</a>
-    <a href="#credits">素材</a>
-  </nav>
+    <!-- 固定導覽列 -->
+    <nav>
+        <a href="#novel">小說全文</a>
+        <a href="#game">遊戲開始</a>
+        <a href="#solution">遊戲解答</a>
+        <a href="#dev">製作心得</a>
+        <a href="#credits">素材來源</a>
+    </nav>
 
-  <section id="novel">
-    <h2>小說內容</h2>
-    <img src="images/scene1.jpg" alt="冰冷機構" class="scene-img">
-    <p>
-      「門，關上了。」<br><br>
-      空氣中瀰漫著鐵鏽與冷氣的味道，地板濕滑，牆面一如既往地潔白——潔白得不自然，像是清洗過無數次的手術台。主角站在房間中央，手中握著一張寫有「秩序即真理」的紙條，而四周的監控鏡頭開始移動……
-    </p>
-    <img src="images/scene2.jpg" alt="神秘事件" class="scene-img">
-    <p>
-      他知道，這不是遊戲，但也不是現實。這是一場測試，一場誰也逃不出的秩序實驗。
-    </p>
-  </section>
-
-  <section id="game">
-    <h2>遊戲體驗</h2>
-    <img src="images/scene3.jpg" alt="被關押" class="scene-img">
-    <p>點擊下方區域進入遊戲（請於正式版中補上正確連結）：</p>
-    <iframe src="遊戲網址待補.html"></iframe>
-    <img src="images/scene4.jpg" alt="找到線索" class="scene-img">
-  </section>
-
-  <section id="dev">
-    <h2>開發心得</h2>
-    <div class="dev-note">
-      開始這個企劃時，其實只是想把小說「具象化」，讓讀者能「走進」場景。密室逃脫的形式讓故事有了互動性，也讓我能嘗試不同的敘事節奏。
+    <!-- 小說區 -->
+    <div id="novel" class="section-divider" style="background-image: url('images/scene1.jpg');">
+        <h2>小說全文</h2>
     </div>
-    <div class="dev-note">
-      在設計場景機關時，我發現恐懼不是來自難度，而是「未知」本身。於是我讓玩家常常懷疑：這是規則，還是陷阱？
+    <section>
+        <h3>第九日清晨</h3>
+        <p>第九日的清晨，警報聲像裂帛般撕開了這座機構的沉寂。</p>
+        <p>有人說看見她穿過手術室的玻璃，如幽靈般毫無阻礙；有人說是電源系統遭到入侵，整棟樓的監控錄影被覆蓋成空白；還有人說她其實從未逃出，而是──升格了。那是一場混亂卻帶著奇怪靜默的災難。不是奔跑的聲音最可怕，而是那之間夾雜的，像小孩笑聲一樣的低語。</p>
+        <p>她──那個曾低聲說過「要讓世界看到真相」的女人消失了。</p>
+        <p>沒有人知道她如何辦到的，甚至連這裡訓練有素、臉無表情的守衛們，也像驚弓之鳥般奔走在走廊間。機構本應是封閉的、冷靜的、井然有序的，如今卻散發著焦躁、疑懼與……血腥味。</p>
+        <p>那味道熟悉而刺鼻，不是我第一次聞到，卻是第一次嗅出它背後潛藏的自由氣息──像是深井底下傳來的一縷風。</p>
+        <p>而我，在這第九天的「觀察」後，被實驗人員宣告「教育」失敗，安排進了那間她曾被關押的房。</p>
+
+        <h3>沉重的日記</h3>
+        <p>房間與其他病房無異，冷白的燈光下閃著陰影，鏽蝕的手術工具映著扭曲的倒影，地上翻倒的鐵櫃與被蟲蛀咬過的紙箱，散落著人骨模型──唯一的不同，是這裡殘留著她的氣息，像一口未被關上的棺。我每踏一步，地板就像呻吟。這不是房間，是某種記憶與怨念的壓縮容器──她曾在這裡被改寫，我也將在這裡被考驗。</p>
+        <p>空氣裡瀰漫著濕冷藥水與舊紙燃燒過的焦味，牆上有某種已被洗去的紅色潑濺痕跡，像暴雨打在視神經上。燈泡發出微微高頻聲響，像某種意志正努力保住存在。牆角一束乾枯的白花靜靜躺著，花瓣像灰燼般飄散，一種仿若儀式的靜謐盤據著空氣──這不是慰靈之物，更像是她為自己預先準備的送行。</p>
+        <p>或許機構人員忙著進行「教育」，他們還沒來得及檢查這間房！我找到了遺留下來的三份手寫日記，紙張泛黃發脆，每一頁都壓得筆痕深刻，像是從皮膚裡刮出的文字。她走得倉皇，那三份手稿像是即將行刑前最後的掙扎囈語以及對自由毫無意義的信仰，但我卻發現那其實是女子暗示著逃出的一絲生機。</p>
+        <b>第一份日記：【觀察期第七天】</b>
+        <blockquote>「那天之後，時間停了。他們說我失控，但我清楚，是他們的實驗出了錯。時針不再轉動，真相也永遠困在那個時刻──早晨八點半。」</blockquote>
+        <details>
+            <summary>⚠️以下劇情內容涉及遊戲解謎（點我展開）</summary>
+            <p>我抬頭看牆上的老舊時鐘，又低頭看桌上的銀製懷錶──它們的指針皆死死地停在08:30。</p>
+            <p>非巧合。這是她留下的訊號。</p>
+            <p>我順著日記的暗示，在牆角的高櫃背後找到一道隱蔽的電子鎖。輸入「0830」，伴隨一聲乾澀的咔噠，櫃門打開。裡面放著數份影印紙、一捲錄音帶，與一疊未曾寄出的信件。紙張邊緣燒焦，字跡急促凌亂，像是曾被時間與審查撕咬過。</p>
+            <p>她在這裡蒐集真相，卻無力訴說。</p>
+        </details>
+        <b>第二份日記：【觀察期第八天】</b>
+        <blockquote>
+            <p>「夢裡，我看見一扇門，門後是風與陽光。不像這裡永遠是冷的、靜的。只要湊齊碎片，就能從倒反的秩序中找到存活的意義。」</p>
+            <p><b>碎片之一</b>b：「那天起，我再也未曾聽他響起。」</p>
+            <p><b>碎片之二</b>：「我不願面對，那讓我想起了被監視的日子。」</p>
+            <p><b>碎片之三</b>：「我堅信自己的信仰如初！身體可以被束縛，但心不會。」</p>
+        </blockquote>
+        <details>
+            <summary>⚠️以下劇情內容涉及遊戲解謎（點我展開）</summary>
+            <p>我在幽暗的拘禁室中發現了許多每件物品：</p>
+            <p>在牆邊，我找到一具覆滿灰塵的老式轉盤電話。聽筒早已斷線，沉默得像一具死屍。上面一張紙條寫著：「AbAndon AccountAbility, And power Answers only to itself.」</p>
+            <p>天花板角落有一台鏡頭破裂的監視器，鏡面猙獰裂開，像被剜去眼珠的腫脹眼窩。上面一張紙條寫著：「Control the narrative, and truth beComes optional.」</p>
+            <p>床腳鎖著一副生鏽的手銬，鐵鍊在夜裡發出細微聲響，如同夢魘在耳邊私語。上面一張紙條寫著：「ThreaTen dissenT, and silence replaces debaTe.」</p>
+            <p>我發現了可疑之處，明明一個單字，卻有部分寫法突兀的採用大寫書寫，這三張紙條都出現了一樣的不尋常現象。於是我拼湊著意象：第一句的不尋常字母是A、第二句是C、第三句是T……A、C、T？我似乎感受到她用一種近乎宗教的隱喻呼喊著。我想起她留下的話：「從倒反的秩序中找到存活的意義。」</p>
+            <p>我打開了一具生鏽的鐵櫃，跌落出的人骨模型讓我心臟幾乎驟停，我在角落發現了另一道密碼鎖。我輸入了「ACT」，顯示器發出滴的一聲－－「Password Correct」，看來通道已啟動──我不知道這個通在哪裡，但我知道，或許一切都還有機會改變！</p>
+            <p>在第十天的黎明到來之前！</p>
+        </details>
+        <b>第三份日記：【觀察期第九天】</b>
+        <blockquote>「理想顛倒之處，真理不再安睡於書頁。推倒他！」</blockquote>
+        <details>
+            <summary>⚠️以下劇情內容涉及遊戲解謎（點我展開）</summary>
+            <p>我站在書架前──眾多泛黃書冊之中，驟然發現一本顛倒陳列的《理想國》。它偽裝的天衣無縫，我的發現似乎是柏拉圖敲醒了困乏又沉重的身軀。我突然明白了，要推它！推倒它！</p>
+            <p>我將手按在書脊，輕輕推動──書櫃沉吟地向內滑動，石牆背後，一條隱藏的通道悄然露出。地面濕滑，牆上滲著不知名的暗紅，空氣悶熱、混濁，如同進入一條逆流的血管。</p>
+        </details>
+
+        <h3>逃亡</h3>
+        <p>……我逃出了那座實驗機構－－或該說，那口人造墳墓。夜色如墨，天空無星。我的雙手仍緊抱著那三份日記與散亂的證據，而她的聲音，在我腦中不斷迴盪：「從倒反的秩序中，找到存活的意義。」</p>
+        <p>我可以選擇藏匿，像塵埃般沉沒在遙遠國度；也可以選擇反擊，將這一切──謊言、殘暴、控制－－公諸於世。代價，是我將過著永無止境的逃亡，而相信我的人，也可能因害怕而選擇了沉默。</p>
+        <p>「而她，為什麼沒帶走這些證據？」是來不及，還是……她選擇了留下？她做了選擇，還是被迫妥協？抑或，她根本是在引導我──讓我，這個歷經萬苦逃出的人，成為他們真正的實驗－－將真相植入我體內，看我會選擇沉默，還是勇敢翻轉那倒反的秩序？</p>
+        <p>那些紀錄、證據、聲音，一夜，在我腦中輪轉成某種咒語，也開始腐蝕我。</p>
+        <p>真相或許無法改變這個世界，但我知道，它至少會留下痕跡。而這痕跡──會像一道傷口，讓謊言永不癒合。</p>
+    </section>
+
+    <!-- 遊戲開始 -->
+    <div id="game" class="section-divider" style="background-image: url('images/scene2.jpg');">
+        <h2>遊戲開始</h2>
     </div>
-  </section>
+    <section>
+        <p>TBD</p>
+    </section>
 
-  <section class="outro-section">
-    <h2>逃脫之後</h2>
-    <p>在黑暗與控制中存活，是否意味著我們仍然自由？</p>
-  </section>
+    <!-- 解答 -->
+    <div id="solution" class="section-divider" style="background-image: url('images/scene3.jpg');">
+        <h2>通關解答</h2>
+    </div>
+    <section>
+        <p>TBD</p>
+    </section>
 
-  <section id="credits" class="credits">
-    <h2>素材感謝</h2>
-    <p>感謝以下資源協助完成本作品：</p>
-    <ul>
-      <li>📷 圖片素材：scene1～4、outro 皆為自行拍攝或授權圖片</li>
-      <li>🎵 音效素材：Freesound 使用者 ABC123 授權公開音效</li>
-      <li>🔠 字體：Google Fonts – Noto Sans TC</li>
-    </ul>
-  </section>
 
-  <footer>
-    &copy; 2025 倒反的秩序：密室逃脫計畫｜僅供非商業用途｜作者保留所有權利
-  </footer>
+    <!-- 開發心得 -->
+    <div id="dev" class="section-divider" style="background-image: url('images/scene4.jpg');">
+        <h2>開發心得</h2>
+    </div>
+    <section>
+        <p>TBD</p>
+    </section>
+
+    <!-- 素材來源 -->
+    <div id="credits" class="section-divider" style="background-image: url('images/outro.jpg');">
+        <h2>素材來源</h2>
+    </div>
+    <section>
+        <p>本作品為非商業用途設計之遊戲，在選用素材時遵守相關條款。以下列出使用的素材及其授權方式的檢視清單，並以此銘謝！</p>
+        <p>資訊整理中...</p>
+
+    </section>
+
+    <!-- footer -->
+    <footer>
+        &copy; 2025 倒反的秩序｜僅供非商業用途｜作者保留所有權利｜<a href="https://jfsblog.com/" target="_blank">Shengle Wang</a>
+    </footer>
 
 </body>
 </html>
