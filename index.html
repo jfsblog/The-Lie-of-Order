@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>倒反的秩序：密室逃脫計畫</title>
   <style>
     body {
@@ -13,22 +13,36 @@
     }
 
     header {
-      background-color: #1c1c1c;
+      position: relative;
+      background: url('images/The-Lie-of-Order.jpg') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      padding: 3rem 1rem;
-      border-bottom: 1px solid #444;
+      color: white;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    header h1,
+    header p {
+      z-index: 1;
     }
 
     header h1 {
-      font-size: 2.5rem;
-      color: #eee;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #aaa;
-      margin: 0;
+      font-size: 1.2rem;
     }
 
     nav {
@@ -37,7 +51,6 @@
       justify-content: center;
       gap: 2rem;
       padding: 1rem;
-      border-bottom: 1px solid #444;
     }
 
     nav a {
@@ -52,7 +65,7 @@
 
     section {
       padding: 2rem 1.5rem;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
     }
 
@@ -62,11 +75,19 @@
       padding-bottom: 0.5rem;
     }
 
+    .scene-img {
+      width: 100%;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #000;
+    }
+
     iframe {
       width: 100%;
       height: 500px;
       border: none;
       background-color: #000;
+      margin-top: 1rem;
     }
 
     .dev-note {
@@ -74,6 +95,60 @@
       border-left: 4px solid #555;
       padding: 1rem;
       margin-bottom: 1.5rem;
+      border-radius: 4px;
+    }
+
+    .outro-section {
+      background: url('images/outro.jpg') no-repeat center center/cover;
+      color: white;
+      padding: 5rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .outro-section::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .outro-section h2,
+    .outro-section p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .credits {
+      background: url('images/outro-next.jpg') no-repeat center center/cover;
+      color: #eee;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .credits::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .credits h2,
+    .credits p,
+    .credits ul {
+      position: relative;
+      z-index: 1;
+    }
+
+    .credits ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .credits li {
+      margin: 0.5rem 0;
     }
 
     footer {
@@ -100,58 +175,58 @@
   <nav>
     <a href="#novel">小說</a>
     <a href="#game">遊戲</a>
-    <a href="#dev">開發心得</a>
-    <a href="#credits">素材來源</a>
+    <a href="#dev">心得</a>
+    <a href="#credits">素材</a>
   </nav>
 
   <section id="novel">
     <h2>小說內容</h2>
+    <img src="images/scene1.jpg" alt="冰冷機構" class="scene-img">
     <p>
-      「門，關上了。」
-      <br><br>
+      「門，關上了。」<br><br>
       空氣中瀰漫著鐵鏽與冷氣的味道，地板濕滑，牆面一如既往地潔白——潔白得不自然，像是清洗過無數次的手術台。主角站在房間中央，手中握著一張寫有「秩序即真理」的紙條，而四周的監控鏡頭開始移動……
-      <br><br>
+    </p>
+    <img src="images/scene2.jpg" alt="神秘事件" class="scene-img">
+    <p>
       他知道，這不是遊戲，但也不是現實。這是一場測試，一場誰也逃不出的秩序實驗。
     </p>
   </section>
 
   <section id="game">
-    <h2>遊戲區</h2>
-    <p>點擊下方區域開始遊戲（*此處將嵌入遊戲*）：</p>
-    <iframe src="請填入你的遊戲網址.html"></iframe>
+    <h2>遊戲體驗</h2>
+    <img src="images/scene3.jpg" alt="被關押" class="scene-img">
+    <p>點擊下方區域進入遊戲（請於正式版中補上正確連結）：</p>
+    <iframe src="遊戲網址待補.html"></iframe>
+    <img src="images/scene4.jpg" alt="找到線索" class="scene-img">
   </section>
 
   <section id="dev">
     <h2>開發心得</h2>
-    
     <div class="dev-note">
       開始這個企劃時，其實只是想把小說「具象化」，讓讀者能「走進」場景。密室逃脫的形式讓故事有了互動性，也讓我能嘗試不同的敘事節奏。
     </div>
-
     <div class="dev-note">
       在設計場景機關時，我發現恐懼不是來自難度，而是「未知」本身。於是我讓玩家常常懷疑：這是規則，還是陷阱？
     </div>
-
-    <div class="dev-note">
-      許多謎題的靈感來自日常心理學與政治隱喻。我希望每一個「解開」都伴隨著一絲不安。
-    </div>
   </section>
 
-  <section id="credits">
-    <h2>素材來源與聲明</h2>
-    <p>
-      本遊戲與小說所使用之圖片、音效與字體素材皆遵守其授權條款。部分素材來自以下來源：
-    </p>
+  <section class="outro-section">
+    <h2>逃脫之後</h2>
+    <p>在黑暗與控制中存活，是否意味著我們仍然自由？</p>
+  </section>
+
+  <section id="credits" class="credits">
+    <h2>素材感謝</h2>
+    <p>感謝以下資源協助完成本作品：</p>
     <ul>
-      <li>圖片素材：<a href="https://unsplash.com" target="_blank">Unsplash</a></li>
-      <li>音效素材：<a href="https://freesound.org" target="_blank">Freesound</a></li>
-      <li>字體使用：Google Fonts - Noto Sans TC</li>
+      <li>📷 圖片素材：scene1～4、outro 皆為自行拍攝或授權圖片</li>
+      <li>🎵 音效素材：Freesound 使用者 ABC123 授權公開音效</li>
+      <li>🔠 字體：Google Fonts – Noto Sans TC</li>
     </ul>
-    <p>如有疑慮或侵權問題，請聯絡開發者進行調整或下架。</p>
   </section>
 
   <footer>
-    &copy; 2025 倒反的秩序：密室逃脫計畫｜All rights reserved.
+    &copy; 2025 倒反的秩序：密室逃脫計畫｜僅供非商業用途｜作者保留所有權利
   </footer>
 
 </body>
