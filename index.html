@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>倒反的秩序：密室逃脫計畫</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     body {
         margin: 0;
@@ -48,35 +49,6 @@
         font-weight: lighter;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     }
-
-    /* 導覽列 */
-    /* nav {
-        background-color: #222;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        padding: 1rem;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    }
-
-    nav a {
-        font-size: 1.2rem;
-        color: #aaa;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 0.5rem 1rem;
-        transition: color 0.3s, background-color 0.3s;
-    }
-
-    nav a:hover {
-        color: #fff;
-        background-color: #444;
-        border-radius: 4px;
-    } */
 
     /* 導覽列樣式 */
     .navbar {
@@ -131,6 +103,50 @@
         font-size: 1.2rem;
     }
 
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        background-color: #111;
+        color: #eee;
+        border: 1px solid #444;
+    }
+
+    table thead {
+        background-color: #222;
+    }
+
+    table thead th {
+        padding: 12px;
+        border-bottom: 2px solid #555;
+        text-align: left;
+        color: #fff;
+    }
+
+    table tbody td {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+    }
+
+    table tbody tr:hover {
+        background-color: #2a2a2a;
+    }
+
+    table a {
+        color: #90caf9; /* 淡藍色連結 */
+        text-decoration: none;
+    }
+
+    table a:hover {
+        text-decoration: underline;
+        color: #ffffff;
+    }
+
     blockquote {
         font-size: 1.2rem;
         margin: 1em 0px;
@@ -154,7 +170,7 @@
     section {
         padding: 2rem;
         margin: auto;
-        max-width: 800px;
+        max-width: 1000px;
     }
 
     section h2 {
@@ -219,20 +235,28 @@
 
     /* 手機版樣式 */
     @media screen and (max-width: 768px) {
-      .navbar a {
-        float: none;
-        display: none;
-        width: 100%;
-        text-align: left;
-      }
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        } 
+        .navbar a {
+            float: none;
+            display: none;
+            width: 100%;
+            text-align: left;
+        }
 
-      .navbar.responsive a {
-        display: block;
-      }
+        .navbar.responsive a {
+            display: block;
+        }
 
-      .hamburger {
-        display: block;
-      }
+        .hamburger {
+            display: block;
+        }
+        table {
+            font-size: 14px;
+        }
     }
   </style>
 </head>
@@ -245,13 +269,6 @@
     </header>
 
     <!-- 固定導覽列 -->
-    <!-- <nav>
-        <a href="#novel">小說全文</a>
-        <a href="#game">遊戲開始</a>
-        <a href="#solution">遊戲解答</a>
-        <a href="#dev">開發歷程</a>
-        <a href="#credits">素材來源</a>
-    </nav> -->
     <div class="navbar" id="navbar">
         <button class="hamburger" onclick="toggleNavbar()">☰</button>
         <a href="#novel">小說全文</a>
@@ -259,6 +276,7 @@
         <a href="#solution">遊戲解答</a>
         <a href="#dev">開發歷程</a>
         <a href="#credits">素材來源</a>
+        <a href="#author">作者簡介</a>
     </div>
 
     <script>
@@ -275,21 +293,21 @@
     <section>
         <h3>第九日清晨</h3>
         <p>第九日的清晨，警報聲像裂帛般撕開了這座機構的沉寂。</p>
-        <p>有人說看見她穿過手術室的玻璃，如幽靈般毫無阻礙；有人說是電源系統遭到入侵，整棟樓的監控錄影被覆蓋成空白；還有人說她其實從未逃出，而是──升格了。那是一場混亂卻帶著奇怪靜默的災難。不是奔跑的聲音最可怕，而是那之間夾雜的，像小孩笑聲一樣的低語。</p>
-        <p>她──那個曾低聲說過「要讓世界看到真相」的女人消失了。</p>
+        <p>有人說看見她穿過手術室的玻璃，如幽靈般毫無阻礙；有人說是電源系統遭到入侵，整棟樓的監控錄影被覆蓋成空白；還有人說她其實從未逃出，而是－－升格了。那是一場混亂卻帶著奇怪靜默的災難。不是奔跑的聲音最可怕，而是那之間夾雜的，像小孩笑聲一樣的低語。</p>
+        <p>她－－那個曾低聲說過「要讓世界看到真相」的女人消失了。</p>
         <p>沒有人知道她如何辦到的，甚至連這裡訓練有素、臉無表情的守衛們，也像驚弓之鳥般奔走在走廊間。機構本應是封閉的、冷靜的、井然有序的，如今卻散發著焦躁、疑懼與……血腥味。</p>
-        <p>那味道熟悉而刺鼻，不是我第一次聞到，卻是第一次嗅出它背後潛藏的自由氣息──像是深井底下傳來的一縷風。</p>
+        <p>那味道熟悉而刺鼻，不是我第一次聞到，卻是第一次嗅出它背後潛藏的自由氣息－－像是深井底下傳來的一縷風。</p>
         <p>而我，在這第九天的「觀察」後，被實驗人員宣告「教育」失敗，安排進了那間她曾被關押的房。</p>
 
         <h3>沉重的日記</h3>
-        <p>房間與其他病房無異，冷白的燈光下閃著陰影，鏽蝕的手術工具映著扭曲的倒影，地上翻倒的鐵櫃與被蟲蛀咬過的紙箱，散落著人骨模型──唯一的不同，是這裡殘留著她的氣息，像一口未被關上的棺。我每踏一步，地板就像呻吟。這不是房間，是某種記憶與怨念的壓縮容器──她曾在這裡被改寫，我也將在這裡被考驗。</p>
-        <p>空氣裡瀰漫著濕冷藥水與舊紙燃燒過的焦味，牆上有某種已被洗去的紅色潑濺痕跡，像暴雨打在視神經上。燈泡發出微微高頻聲響，像某種意志正努力保住存在。牆角一束乾枯的白花靜靜躺著，花瓣像灰燼般飄散，一種仿若儀式的靜謐盤據著空氣──這不是慰靈之物，更像是她為自己預先準備的送行。</p>
+        <p>房間與其他病房無異，冷白的燈光下閃著陰影，鏽蝕的手術工具映著扭曲的倒影，地上翻倒的鐵櫃與被蟲蛀咬過的紙箱，散落著人骨模型－－唯一的不同，是這裡殘留著她的氣息，像一口未被關上的棺。我每踏一步，地板就像呻吟。這不是房間，是某種記憶與怨念的壓縮容器－－她曾在這裡被改寫，我也將在這裡被考驗。</p>
+        <p>空氣裡瀰漫著濕冷藥水與舊紙燃燒過的焦味，牆上有某種已被洗去的紅色潑濺痕跡，像暴雨打在視神經上。燈泡發出微微高頻聲響，像某種意志正努力保住存在。牆角一束乾枯的白花靜靜躺著，花瓣像灰燼般飄散，一種仿若儀式的靜謐盤據著空氣－－這不是慰靈之物，更像是她為自己預先準備的送行。</p>
         <p>或許機構人員忙著進行「教育」，他們還沒來得及檢查這間房！我找到了遺留下來的三份手寫日記，紙張泛黃發脆，每一頁都壓得筆痕深刻，像是從皮膚裡刮出的文字。她走得倉皇，那三份手稿像是即將行刑前最後的掙扎囈語以及對自由毫無意義的信仰，但我卻發現那其實是女子暗示著逃出的一絲生機。</p>
         <b>第一份日記：【觀察期第七天】</b>
-        <blockquote>「那天之後，時間停了。他們說我失控，但我清楚，是他們的實驗出了錯。時針不再轉動，真相也永遠困在那個時刻──早晨八點半。」</blockquote>
+        <blockquote>「那天之後，時間停了。他們說我失控，但我清楚，是他們的實驗出了錯。時針不再轉動，真相也永遠困在那個時刻－－早晨八點半。」</blockquote>
         <details>
             <summary>⚠️以下劇情內容涉及遊戲解謎（點我展開）</summary>
-            <p>我抬頭看牆上的老舊時鐘，又低頭看桌上的銀製懷錶──它們的指針皆死死地停在08:30。</p>
+            <p>我抬頭看牆上的老舊時鐘，又低頭看桌上的銀製懷錶－－它們的指針皆死死地停在08:30。</p>
             <p>非巧合。這是她留下的訊號。</p>
             <p>我順著日記的暗示，在牆角的高櫃背後找到一道隱蔽的電子鎖。輸入「0830」，伴隨一聲乾澀的咔噠，櫃門打開。裡面放著數份影印紙、一捲錄音帶，與一疊未曾寄出的信件。紙張邊緣燒焦，字跡急促凌亂，像是曾被時間與審查撕咬過。</p>
             <p>她在這裡蒐集真相，卻無力訴說。</p>
@@ -308,23 +326,23 @@
             <p>天花板角落有一台鏡頭破裂的監視器，鏡面猙獰裂開，像被剜去眼珠的腫脹眼窩。上面一張紙條寫著：「Control the narrative, and truth beComes optional.」</p>
             <p>床腳鎖著一副生鏽的手銬，鐵鍊在夜裡發出細微聲響，如同夢魘在耳邊私語。上面一張紙條寫著：「ThreaTen dissenT, and silence replaces debaTe.」</p>
             <p>我發現了可疑之處，明明一個單字，卻有部分寫法突兀的採用大寫書寫，這三張紙條都出現了一樣的不尋常現象。於是我拼湊著意象：第一句的不尋常字母是A、第二句是C、第三句是T……A、C、T？我似乎感受到她用一種近乎宗教的隱喻呼喊著。我想起她留下的話：「從倒反的秩序中找到存活的意義。」</p>
-            <p>我打開了一具生鏽的鐵櫃，跌落出的人骨模型讓我心臟幾乎驟停，我在角落發現了另一道密碼鎖。我輸入了「ACT」，顯示器發出滴的一聲－－「Password Correct」，看來通道已啟動──我不知道這個通在哪裡，但我知道，或許一切都還有機會改變！</p>
+            <p>我打開了一具生鏽的鐵櫃，跌落出的人骨模型讓我心臟幾乎驟停，我在角落發現了另一道密碼鎖。我輸入了「ACT」，顯示器發出滴的一聲－－「Password Correct」，看來通道已啟動－－我不知道這個通在哪裡，但我知道，或許一切都還有機會改變！</p>
             <p>在第十天的黎明到來之前！</p>
         </details>
         <b>第三份日記：【觀察期第九天】</b>
         <blockquote>「理想顛倒之處，真理不再安睡於書頁。推倒他！」</blockquote>
         <details>
             <summary>⚠️以下劇情內容涉及遊戲解謎（點我展開）</summary>
-            <p>我站在書架前──眾多泛黃書冊之中，驟然發現一本顛倒陳列的《理想國》。它偽裝的天衣無縫，我的發現似乎是柏拉圖敲醒了困乏又沉重的身軀。我突然明白了，要推它！推倒它！</p>
-            <p>我將手按在書脊，輕輕推動──書櫃沉吟地向內滑動，石牆背後，一條隱藏的通道悄然露出。地面濕滑，牆上滲著不知名的暗紅，空氣悶熱、混濁，如同進入一條逆流的血管。</p>
+            <p>我站在書架前－－眾多泛黃書冊之中，驟然發現一本顛倒陳列的《理想國》。它偽裝的天衣無縫，我的發現似乎是柏拉圖敲醒了困乏又沉重的身軀。我突然明白了，要推它！推倒它！</p>
+            <p>我將手按在書脊，輕輕推動－－書櫃沉吟地向內滑動，石牆背後，一條隱藏的通道悄然露出。地面濕滑，牆上滲著不知名的暗紅，空氣悶熱、混濁，如同進入一條逆流的血管。</p>
         </details>
 
         <h3>逃亡</h3>
         <p>……我逃出了那座實驗機構－－或該說，那口人造墳墓。夜色如墨，天空無星。我的雙手仍緊抱著那三份日記與散亂的證據，而她的聲音，在我腦中不斷迴盪：「從倒反的秩序中，找到存活的意義。」</p>
-        <p>我可以選擇藏匿，像塵埃般沉沒在遙遠國度；也可以選擇反擊，將這一切──謊言、殘暴、控制－－公諸於世。代價，是我將過著永無止境的逃亡，而相信我的人，也可能因害怕而選擇了沉默。</p>
-        <p>「而她，為什麼沒帶走這些證據？」是來不及，還是……她選擇了留下？她做了選擇，還是被迫妥協？抑或，她根本是在引導我──讓我，這個歷經萬苦逃出的人，成為他們真正的實驗－－將真相植入我體內，看我會選擇沉默，還是勇敢翻轉那倒反的秩序？</p>
+        <p>我可以選擇藏匿，像塵埃般沉沒在遙遠國度；也可以選擇反擊，將這一切－－謊言、殘暴、控制－－公諸於世。代價，是我將過著永無止境的逃亡，而相信我的人，也可能因害怕而選擇了沉默。</p>
+        <p>「而她，為什麼沒帶走這些證據？」是來不及，還是……她選擇了留下？她做了選擇，還是被迫妥協？抑或，她根本是在引導我－－讓我，這個歷經萬苦逃出的人，成為他們真正的實驗－－將真相植入我體內，看我會選擇沉默，還是勇敢翻轉那倒反的秩序？</p>
         <p>那些紀錄、證據、聲音，一夜，在我腦中輪轉成某種咒語，也開始腐蝕我。</p>
-        <p>真相或許無法改變這個世界，但我知道，它至少會留下痕跡。而這痕跡──會像一道傷口，讓謊言永不癒合。</p>
+        <p>真相或許無法改變這個世界，但我知道，它至少會留下痕跡。而這痕跡－－會像一道傷口，讓謊言永不癒合。</p>
     </section>
 
     <!-- 遊戲開始 -->
@@ -362,24 +380,217 @@
             <li>
               <strong>CC0 公眾領域貢獻（Creative Commons Zero）</strong><br />
               表示創作者明確放棄其著作權，素材可自由使用，無須標示出處，亦可用於商業用途。<br />
-              官方說明：<a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">https://creativecommons.org/publicdomain/zero/1.0/</a>
+              <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">官方說明</a>
             </li>
             <li>
               <strong>CC BY 4.0 姓名標示授權（Creative Commons Attribution 4.0 International）</strong><br />
-              允許自由分享與改作，包含商業使用，唯須標示原作者及來源。<br />
-              官方說明：<a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a>
+              允許自由分享與改作，包含商業使用，唯須標示原作者及來源。<br /><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">官方說明</a>
             </li>
           </ul>
         <p>
         在此附上素材使用與授權方式的檢視清單，並向所有素材提供者致上誠摯謝意！
         </p>
-        <p>素材資料整理中...</p>
-
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>類型</th>
+                        <th>素材與工具</th>
+                        <th>授權方式</th>
+                        <th>作者</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>平台</td>
+                        <td>PlayCanvas</td>
+                        <td>開源軟體</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>平台</td>
+                        <td>HTC VIVERSE EXTENSION</td>
+                        <td>指定使用</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>平台</td>
+                        <td>HTC VIVERSE World</td>
+                        <td>指定使用</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/horror-hospital-room-56c9c40933644254b939ae2a22807d44">Horror Hospital Room</a></td>
+                        <td>CC0</td><td>Karol</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/lair-of-a-killer-surgeon-273147068d2440a98f77f0551a4ce9d7">Lair of a killer surgeon</a></td>
+                        <td>CC Attribution</td>
+                        <td>epilogueronin</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/wall-clock-6mb-b11becc7e2e24f679f8c68be8de06be4">Wall Clock_6MB</a></td>
+                        <td>CC Attribution</td>
+                        <td>Mehdi Shahsavan</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/vintage-pocket-watch-8f03299aecdd4382a04783c472139254">Vintage Pocket Watch</a></td>
+                        <td>CC Attribution</td>
+                        <td>Dodocaedro</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/handcuffs-38050f7c0a534bcbacaa0b05d4fd6d34">Handcuffs</a></td>
+                        <td>CC Attribution</td>
+                        <td>ButterBrain</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/metal-cabinet-low-poly-1053729ad9d24d71a578622251f76deb">Metal Cabinet (Low Poly)</a></td>
+                        <td>CC Attribution</td>
+                        <td>Berk Gedik</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/old-book-034b401e47f347baad01afee36e8fcd7">Old Book</a></td>
+                        <td>CC Attribution</td>
+                        <td>Ankledot</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/password-panels-9affa340947c4ec6a2712ceff577311d">Password Panels</a></td>
+                        <td>CC Attribution</td>
+                        <td>Kelisei Ventura</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/pirate-map-ba468f31212e4d79b69dd09a509c0fd3">Pirate Map</a></td>
+                        <td>CC Attribution</td><td>3000volt</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/sfm-telephone-90ea20bab1aa41c9a537f80c5b9ea287">SFM Telephone</a></td>
+                        <td>CC Attribution</td>
+                        <td>G=</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/skeleton-4de7b96a351a4a35b1b6e5415277ff07">Skeleton</a></td>
+                        <td>CC Attribution</td>
+                        <td>Diego Luján García</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/studio-camera-5f1bcd2fdb3c41668a868357054f7203">Studio Camera</a></td>
+                        <td>CC Attribution</td>
+                        <td>GeniusPilot2016</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/vhs-tapes-71e8e73bc3eb4014934faafb3658403a">VHS Tapes</a></td>
+                        <td>CC Attribution</td>
+                        <td>Tommeee</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/carton-02900947765845b2b3c08eb0afee5fa3">carton</a></td>
+                        <td>CC Attribution</td>
+                        <td>3dcube</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/emergency-escape-light-ffef66624e0840b489868628dda1736e">Emergency Escape Light</a></td>
+                        <td>CC Attribution</td>
+                        <td>GurazhGurazh</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/low-poly-whiteboard-1cbf089ec4b741ad9d092d15db6d55ba" data-type="link" data-id="https://sketchfab.com/3d-models/low-poly-whiteboard-1cbf089ec4b741ad9d092d15db6d55ba">Low Poly Whiteboard</a></td>
+                        <td>CC Attribution</td>
+                        <td>tankop1</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/tablet-folder-43976803a2b141c6b467408bda6f2ef7">Tablet folder</a></td>
+                        <td>CC Attribution</td>
+                        <td>Arte Hexe</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/waiting-chair-76c028f787e049e4b6c3b8550f015f23">Waiting Chair</a></td>
+                        <td>CC Attribution</td>
+                        <td>creative_beast</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/wall-lamp-blender-f705fbc544b440b8bb1103d8fcba5b4e">Wall Lamp Blender</a></td>
+                        <td>CC Attribution</td>
+                        <td>Voll-Grinn</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/wheelchair-f0ef4adc17ee4929b40e894c608061ea">WheelChair</a></td>
+                        <td>CC Attribution</td>
+                        <td>Loïc</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/broken-vase-lowpoly-6e0f182f408143a3be6381ef02cadddf">Broken Vase // LOWPOLY</a></td>
+                        <td>CC Attribution</td>
+                        <td>Vlasov Daniil</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/dirty-toilet-389d5427a1f344c4aa4883ec5a6aaf05">Dirty Toilet</a></td>
+                        <td>CC Attribution</td>
+                        <td>Shedmon</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/plastic-water-bottle-731efe2635c9472c9c1e4fdb1f8fbd13">Plastic Water Bottle</a></td>
+                        <td>CC Attribution</td>
+                        <td>RoutineStudio</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/rubble-pile-photoscan-optimized-5986d1487d9443b883d67b121c2c903c">Rubble Pile - Photoscan (Optimized)</a></td>
+                        <td>CC Attribution</td>
+                        <td>GameDev Nick</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/blooood-86697d3aa5ed44fea2cf0e3b7067b925">Blooood</a></td>
+                        <td>CC Attribution</td>
+                        <td>Nyilonelycompany</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/candle-light-d9d5ed5de83b4d899ab93f55bdc3d0bc">Candle light</a></td>
+                        <td>CC Attribution</td>
+                        <td>al0sral0</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/dry-flower-d565e8b73f35430a882789ed9c434299">Dry flower</a></td>
+                        <td>CC Attribution</td>
+                        <td>Second Studio</td>
+                    </tr>
+                    <tr>
+                        <td>模型</td>
+                        <td><a href="https://sketchfab.com/3d-models/metal-door-of-the-sewer---31mb-8012eb98270a47b09dbbff99d85f2da6">Metal Door Of The Sewer _ 31MB</a></td>
+                        <td>CC Attribution</td><td>Mehdi Shahsavan</td></tr><tr><td>模型</td><td><a href="https://sketchfab.com/3d-models/metal-grate-447bd0a790f8453cb4c4e50c02ab7618">Metal Grate</a></td><td>CC Attribution</td><td>RBG_illustrations</td></tr><tr><td>材質</td><td><a href="https://www.sharetextures.com/textures/wall/stone-wall-2">Stone Wall Texture 2</a></td><td>CC0</td><td>M.Tolga Arslan</td></tr><tr><td>材質</td><td><a href="https://www.sharetextures.com/textures/plaster/wall-random-2">Wall Random 2</a></td><td>CC0</td><td>M.Tolga Arslan</td></tr><tr><td>材質</td><td><a href="https://polyhaven.com/a/stone_tiles">Stone Tiles</a></td><td>CC0</td><td>Christopher Melani</td></tr><tr><td>貼圖</td><td><a href="https://piclumen.com/app/image-generator/create">PicLumen</a> (AI圖片生成平台)</td><td><a href="https://www.piclumen.com/faq/can-i-use-the-ai-images-for-commercial-purposes/" data-type="link" data-id="https://www.piclumen.com/faq/can-i-use-the-ai-images-for-commercial-purposes/">可商用</a></td><td>PicLumen</td></tr><tr><td>貼圖</td><td><a href="https://slidesgo.com/theme/papyrus-history-lesson">Papyrus History Lesson Google Slides Theme and PPT Template</a></td><td><a href="https://slidesgo.com/faqs#freetousetemplates" data-type="link" data-id="https://slidesgo.com/faqs#freetousetemplates">可商用</a></td><td></td></tr><tr><td>貼圖</td><td><a href="https://polyhaven.com/a/moonlit_golf">Moonlit Golf HDRI</a></td><td>CC0</td><td>Greg Zaal</td></tr><tr><td>貼圖</td><td><a href="https://pixabay.com/zh/vectors/warning-yellow-attention-147699/">警告 黄色 注意力</a></td><td>CC0</td><td>OpenClipart-Vectors</td></tr><tr><td>貼圖</td><td><a href="https://pixabay.com/zh/photos/silhouette-ghost-horror-halloween-3777403/">轮廓 鬼 恐怖</a></td><td>CC0</td><td>magwood_photography</td></tr><tr><td>貼圖</td><td><a href="https://pixabay.com/zh/vectors/button-red-round-shiny-155149/">按钮 红色的 圆形的</a></td><td>CC0</td><td>OpenClipart-Vectors</td></tr><tr><td>聲音</td><td><a href="https://www.youtube.com/watch?v=7VPVTYfUhg4&amp;ab_channel=WayneJones-Topic">Elegy</a></td><td>YouTube無版權音樂</td><td>Wayne Jones</td></tr><tr><td>聲音</td><td><a href="https://pixabay.com/zh/sound-effects/dorm-door-opening-6038/">dorm door opening</a></td><td>CC0</td><td>freesound_community</td></tr><tr><td>聲音</td><td><a href="https://pixabay.com/zh/sound-effects/metal-hit-92-200420/">Metal Hit 92</a></td><td>CC0</td><td>floraphonic</td></tr><tr><td>聲音</td><td><a href="https://pixabay.com/zh/sound-effects/enable-device-133456/">Enable Device</a></td><td>CC0</td><td>Colto</td></tr><tr><td>聲音</td><td><a href="https://pixabay.com/zh/sound-effects/suddenly-and-without-warning-153296/">Suddenly And Without Warning</a></td><td>CC0</td><td>Universfield</td></tr><tr><td>聲音</td><td><a href="https://pixabay.com/zh/sound-effects/correct-2-46134/">Correct-2</a></td><td>CC0</td><td>freesound_community</td></tr><tr><td>字型</td><td><a href="https://fonts.google.com/specimen/Caveat">Caveat</a></td><td>CC0</td><td>Impallari Type</td></tr><tr><td>字型</td><td><a href="https://fonts.google.com/specimen/Quantico">Quantico</a></td><td>CC0</td><td>MADType</td></tr><tr><td>字型</td><td><a href="https://github.com/Chenyu-otf/chenyuluoyan_thin">辰宇落雁體</a></td><td>OFL 1.1</td><td>劉韋辰、王立宇</td></tr><tr><td>字型</td><td><a href="https://github.com/welai/glow-sans" data-type="link" data-id="https://github.com/welai/glow-sans">未來熒黑</a></td><td>OFL 1.1</td><td>Celestial Phineas</td></tr><tr><td>字型</td><td><a href="https://cjkfonts.io/item/gracefulmingkai">韻流明楷</a></td><td>購買永久商用授權</td><td>CJKFONTS</td></tr>
+                </tbody>
+            </table>
+        </div>
     </section>
 
     <!-- footer -->
     <footer>
-        &copy; 2025 倒反的秩序｜僅供非商業用途｜作者保留所有權利｜<a href="https://jfsblog.com/" target="_blank">Shengle Wang</a>
+        &copy; 2025 倒反的秩序｜作者保留所有權利｜<a href="https://jfsblog.com/" target="_blank">Shengle Wang</a>
     </footer>
 
 </body>
