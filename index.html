@@ -50,7 +50,7 @@
     }
 
     /* 導覽列 */
-    nav {
+    /* nav {
         background-color: #222;
         display: flex;
         justify-content: center;
@@ -76,6 +76,51 @@
         color: #fff;
         background-color: #444;
         border-radius: 4px;
+    } */
+
+    /* 導覽列樣式 */
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #333;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10px;
+      z-index: 1000;
+    }
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .navbar a:hover {
+      background-color: #575757;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 14px 20px;
     }
 
     h2{
@@ -171,6 +216,24 @@
     footer a:hover {
         color: #fff;
     }
+
+    /* 手機版樣式 */
+    @media screen and (max-width: 768px) {
+      .navbar a {
+        float: none;
+        display: none;
+        width: 100%;
+        text-align: left;
+      }
+
+      .navbar.responsive a {
+        display: block;
+      }
+
+      .hamburger {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -182,13 +245,28 @@
     </header>
 
     <!-- 固定導覽列 -->
-    <nav>
+    <!-- <nav>
         <a href="#novel">小說全文</a>
         <a href="#game">遊戲開始</a>
         <a href="#solution">遊戲解答</a>
         <a href="#dev">開發歷程</a>
         <a href="#credits">素材來源</a>
-    </nav>
+    </nav> -->
+    <div class="navbar" id="navbar">
+        <button class="hamburger" onclick="toggleNavbar()">☰</button>
+        <a href="#novel">小說全文</a>
+        <a href="#game">遊戲開始</a>
+        <a href="#solution">遊戲解答</a>
+        <a href="#dev">開發歷程</a>
+        <a href="#credits">素材來源</a>
+    </div>
+
+    <script>
+        function toggleNavbar() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("responsive");
+        }
+    </script>
 
     <!-- 小說區 -->
     <div id="novel" class="section-divider" style="background-image: url('images/scene1.jpg');">
