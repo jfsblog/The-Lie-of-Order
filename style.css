@@ -264,38 +264,35 @@ footer a:hover {
 }
 
 
-    .bug-card {
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 30px;
-        /* background-color: #f9f9f9; */
-        box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-    }
-    .bug-card h4 {
-        margin-top: 0;
-        /* color: #333; */
-        border-left: 5px solid #007BFF;
-        padding-left: 10px;
-    }
-    .bug-section {
-        margin-top: 10px;
-        padding-left: 20px;
-    }
-    .bug-section strong {
-        display: inline-block;
-        margin-bottom: 5px;
-        color: #d9534f;
-    }
-    .solution {
-        color: #5cb85c;
-    }
-    .screenshot {
-        margin-top: 10px;
-        border-radius: 8px;
-        max-width: 100%;
-        box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-    }
+.bug-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
+}
+.bug-card h4 {
+    margin-top: 0;
+    border-left: 5px solid #007BFF;
+    padding-left: 10px;
+}
+.bug-section {
+    margin-top: 10px;
+}
+.bug-section strong {
+    display: inline-block;
+    margin-bottom: 5px;
+    color: #d9534f;
+}
+.solution {
+    color: #5cb85c;
+}
+.screenshot {
+    margin-top: 10px;
+    border-radius: 8px;
+    max-width: 100%;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
 
 /* 手機版樣式 */
 @media screen and (max-width: 768px) {
