@@ -5,260 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>倒反的秩序：密室逃脫計畫</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
-    body {
-        margin: 0;
-        font-family: 'Microsoft JhengHei', sans-serif;
-        background-color: #111;
-        color: #bdbdbd;
-        line-height: 1.6;
-    }
-
-    a{
-        color: wheat;
-    }
-
-    a:hover{
-        color: #f5bdb3;
-    }
-
-    /* 標題區塊 */
-    header {
-        position: relative;
-        background: url('images/header-bg.jpg') no-repeat center center/cover;
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-        padding: 2rem;
-        font-size: 2.5rem;
-    }
-
-    header h1 {
-        font-size: 3.5rem;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    header p {
-        font-size: 1.2rem;
-        margin-top: 1rem;
-        font-weight: lighter;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    }
-
-    /* 導覽列樣式 */
-    .navbar {
-      background-color: #333;
-      overflow: hidden;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #333;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      padding: 0 10px;
-      z-index: 1000;
-    }
-    .navbar a {
-      color: white;
-      padding: 14px 20px;
-      text-decoration: none;
-      text-align: center;
-    }
-
-    .navbar a:hover {
-      background-color: #575757;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 28px;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 14px 20px;
-    }
-
-    h2{
-        font-size: 2rem;
-    }
-
-    b {
-        font-size: 1.2rem;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        font-size: 16px;
-        background-color: #111;
-        color: #eee;
-        border: 1px solid #444;
-    }
-
-    table thead {
-        background-color: #222;
-    }
-
-    table thead th {
-        padding: 12px;
-        border-bottom: 2px solid #555;
-        text-align: left;
-        color: #fff;
-    }
-
-    table tbody td {
-        padding: 10px;
-        border-bottom: 1px solid #333;
-    }
-
-    table tbody tr:hover {
-        background-color: #2a2a2a;
-    }
-
-    table a {
-        color: #90caf9; /* 淡藍色連結 */
-        text-decoration: none;
-    }
-
-    table a:hover {
-        text-decoration: underline;
-        color: #ffffff;
-    }
-
-    blockquote {
-        font-size: 1.2rem;
-        margin: 1em 0px;
-        padding: 0px 0px 0px 1em;
-        border-left: 5px solid gray;
-    }
-
-    /* 區塊分隔線 */
-    .section-divider {
-        scroll-margin-top: 100px; /* 根據 nav 的高度來調整，這裡假設 nav 高度約為 100px */
-        background-color: rgba(0, 0, 0, 0.5);
-        height: 150px;
-        text-align: center;
-        padding-top: 1.8rem;
-        margin-top: 80px;
-        font-size: 2rem;
-        color: #fff;
-    }
-
-    /* 區塊內文 */
-    section {
-        padding: 2rem;
-        margin: auto;
-        max-width: 1000px;
-    }
-
-    section h2 {
-        font-size: 2.5rem;
-        border-bottom: 2px solid #444;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-
-    section p {
-        font-size: 1.2rem;
-        margin-bottom: 1.2rem;
-    }
-
-    section h3 {
-        font-size: 1.8rem;
-        margin-top: 1.5rem;
-    }
-
-    /* 素材來源區塊 */
-    .credits ul {
-        padding-left: 2rem;
-    }
-
-    .credits li {
-        margin-bottom: 0.5rem;
-    }
-
-    details {
-        border: 1px solid #999;
-        border-radius: 8px;
-        padding: 10px 15px;
-        background-color: #1e1e1e;
-        color: #ddd;
-        margin: 10px 0;
-    }
-
-    summary {
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-
-    /* 頁腳 */
-    footer {
-        background-color: #222;
-        color: #aaa;
-        text-align: center;
-        padding: 1rem;
-        font-size: 1rem;
-    }
-
-    footer a {
-        color: #aaa;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    footer a:hover {
-        color: #fff;
-    }
-
-    /* 手機版樣式 */
-    @media screen and (max-width: 768px) {
-        header h1 {
-            font-size: 2.2rem;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-        } 
-        .navbar a {
-            float: none;
-            display: none;
-            width: 100%;
-            text-align: left;
-        }
-
-        .navbar.responsive a {
-            display: block;
-        }
-
-        .hamburger {
-            display: block;
-        }
-        table {
-            font-size: 14px;
-        }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -272,6 +19,7 @@
     <!-- 固定導覽列 -->
     <div class="navbar" id="navbar">
         <button class="hamburger" onclick="toggleNavbar()">☰</button>
+        <a href="#vote">幫我投票</a>
         <a href="#novel">小說全文</a>
         <a href="https://create.viverse.com/GGWFbP7" target="_blank">遊戲開始</a>
         <a href="#solution">遊戲解答</a>
@@ -286,6 +34,14 @@
         navbar.classList.toggle("responsive");
         }
     </script>
+
+    <!-- 投票方法 -->
+    <div id="vote" class="section-divider" style="background-image: url('images/scene2.jpg');">
+        <h2>幫我投票</h2>
+    </div>
+    <section>
+        TBD
+    </section>
 
     <!-- 小說區 -->
     <div id="novel" class="section-divider" style="background-image: url('images/scene1.jpg');">
@@ -355,7 +111,124 @@
         <h2>通關解答</h2>
     </div>
     <section>
-        <p>預計5/25前補充</p>
+        <p>如果你說覺得很難，那我會很開心！請好好感受一下我第一次參加實體密室逃脫時的痛苦。</p>
+        <p>不過說眞的，第一次參與密室逃脫眞的會比較受挫，我自認為我這次設計的關卡難度也比較高，但也沒有我參加實際密室逃脫時那麼艱澀。基於我想要模擬女子留下了證據，但又不能被這個精神病院的人員輕易破解的故事背景，因此其中用了比較多了文學上的隱喻、暗示等手法來進行日記殘頁的文字內容，讓人覺得這些殘頁只是女子的被關押而導致精神異常的囈語，而不會去注意原來這個機構裡面暗藏了許多機關。這個遊戲有設定第十日黎明來臨前要闖出去，所以我最初是想要加上一個時間限制，但因為難度比較高，考慮很久就還是先不要讓人壓力這麼大好了！</p>
+
+        <details>
+            <summary>初始操作</summary>
+            <div class="content-block">
+            <img src="Answer\Answer (1).JPG" width="100%">
+                <div class="text">
+                    <p>點擊開始，遊戲跳出提示，就是快點逃出去。</p>
+                    <p>註：我沒有過多的描述，是因為實體密室逃脫時也不會有導引，有導引會讓人沉浸感不佳，應該還是要自己去探索。</p>
+                </div>
+            </div>
+                    <div class="content-block">
+            <img src="Answer\Answer (2).JPG" width="100%">
+                <div class="text">
+                    <p>點擊場景中的燈，可以讓環境稍微明亮一些。</p>
+                    <p>註：這裡的燈泡刻意模擬電源不穩的狀況，可能會出現一些不規律地閃爍。</p>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>發現日記</summary>
+            <div class="content-block">
+            <img src="Answer\Answer (3).JPG" width="100%">
+                <div class="text">
+                    <p>點亮開始按鈕上方的燈，會直接看到三份殘頁，就是女子留下導引，照順序去完成他。</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>找到證據</summary>
+            <div class="content-block">
+            <img src="Answer\Answer (4).JPG" width="100%">
+                <div class="text">
+                    <p>第一份殘頁暗示真相與停滯的時間有關，也就是環境中有寫著「時間」因素的物件與找到證據隱藏之處有關。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (5).JPG" width="100%">
+                <div class="text">
+                    <p>環境中可以發現時鐘和懷錶，兩者都特別強調了時鐘不動，並不是壞掉，而是刻意被停止的，也就是上面的時間是重要線索。</p>
+                    <p>表面「8:30」，又說明是早晨，因此真相必定與「0830」有關，而非「2030」。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (6).JPG" width="100%">
+                <div class="text">
+                    <p>在環境中發現一個輸入密碼的電子鎖，點擊後提示證據在裡面。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (7).JPG" width="100%">
+                <div class="text">
+                    <p>輸入「0830」可以開啟櫃子，裡面有一些磁帶，點擊後取得，這就是那名女子留下的真相。</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>找到出口電子鎖</summary>
+            <div class="content-block">
+            <img src="Answer\Answer (8).JPG" width="100%">
+                <div class="text">
+                    <p>第二份殘頁用文藝的方式暗示著出口與三個物件有關。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (9).JPG" width="100%">
+                <div class="text">
+                    <p>第一個物件提示「不再響起」可以找到對應的物品是「電話」，電話下藏著女子的紙條中，出現異常大寫的字母是「A」。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (10).JPG" width="100%">
+                <div class="text">
+                    <p>第二個物件提示「被監視」可以找到對應的物品是「鏡頭」，鏡頭下藏著女子的紙條中，出現異常大寫的字母是「C」。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (11).JPG" width="100%">
+                <div class="text">
+                    <p>第三個物件提示「被束縛」可以找到對應的物品是「手銬」，手銬下藏著女子的紙條中，出現異常大寫的字母是「T」。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (12).JPG" width="100%">
+                <div class="text">
+                    <p>將三個物件提示的字母照順序組合起來是「ACT」</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (13).JPG" width="100%">
+                <div class="text">
+                    <p>探索環境，發現一個藏在鐵櫃中的密碼鎖，上面寫著密碼正確可以開啟緊急逃生鎖。輸入「ACT」可以顯示成功開啟。但還需要找到出口。</p>
+                </div>
+            </div>
+        </details>
+        <details>
+            <summary>找到出口</summary>
+            <div class="content-block">
+            <img src="Answer\Answer (14).JPG" width="100%">
+                <div class="text">
+                    <p>第三份殘頁暗示出口與柏拉圖有關，並且是理想顛倒之處，可以猜想是柏拉圖〈理想國〉被倒放之處。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (15).JPG" width="100%">
+                <div class="text">
+                    <p>探索環境確實發現一本柏拉圖的理想國的書被倒置在一個書櫃旁，紙條暗示出口就在其後，推過去可以發現暗道。</p>
+                </div>
+            </div>
+            <div class="content-block">
+            <img src="Answer\Answer (16).JPG" width="100%">
+                <div class="text">
+                    <p>在此發現了一個下水道的出口，若此前已經取得了女子留下的證物磁帶，並且解鎖了出口的電子鎖，那麼就可以點擊此按鈕，成功逃出！</p>
+                </div>
+            </div>
+        </details>
     </section>
 
 
@@ -364,7 +237,142 @@
         <h2>開發歷程</h2>
     </div>
     <section>
-        <p>預計5/25前補充</p>
+        <h3>製作期程非常緊迫</h3>
+        <p>公司給予的遊戲開發時程只有短短1.5個月，而且指定的平台竟然是我完全沒聽過的 PlayCanvas。當我第一次得知這件事，真的是滿臉問號，只能從零開始摸索。除了介面長得有點像 Unity 外，我對它一無所知（而且老實說，Unity 我也沒有很熟 XD）。</p>
+        <p>整體開發期僅一個半月，對我這種首次接觸 PlayCanvas 的人來說，實在是趕得太誇張了。光是熟悉平台和基本操作就花掉了近一個月，真正能開始創作時只剩不到兩週。為了做出一個有水準的作品，我幾乎把所有下班時間、週末、連假全都砸進去，常常從早上學習到隔天清晨。印象最深的是某個假日早上，我衝去買兩杯特大杯咖啡，然後開始 K 文件、測試、挫折、抱怨，整個人進入一種考研究所的錯覺狀態。</p>
+        <p>這段期間也讓我的生活節奏大亂，失眠、焦慮樣樣來（同事還笑說太浮誇 XD）。更糟的是 PlayCanvas 的教學資源極少，官方文件也不完整，就連 ChatGPT 都常搞混 Unity 和 PlayCanvas，讓我在解 Bug 時頻頻卡關。這一個半月，簡直就是我的惡夢。</p>
+        <p>更可惜的是，因為時間實在太緊，我原本還想在遊戲裡加更多細節，甚至計畫學 Blender 做些動畫來豐富場景，結果最後都只能放棄，實在遺憾。</p>
+
+        <h3>遊戲核心思想與文學創作發想</h3>
+        <p>身為理工背景的人，可能很少像我這樣曾參加過一堆文學比賽吧（笑）。這次我想發揮這方面的優勢，讓遊戲除了是密室逃脫，也能多一些文學底蘊。所以我決定親自撰寫一篇原創小說，作為這款遊戲的世界觀背景。</p>
+        <p>我選擇了批判性很強的反烏托邦風格，搭配非常適合遊戲敘事的意識流寫作手法。同時也致敬我很喜歡的兩位文字創作者：作家簡媜與作詞家藍小邪，他們在修辭上的運用非常打動人心。我試著把他們的寫作技巧稍作轉化，融入我的文本之中，讓文字更具象徵性、擬人化，也藉此針砭一些現實議題。</p>
+        <p>而遊戲的核心思想，我選擇以柏拉圖的《理想國》為象徵。因為這部作品已是公共財，我希望遊戲不僅僅是遊戲，而是能引起反思。所以在結局設計上，即使成功逃出密室，依然會出現一個開放式的結尾：也許這場密室，只是某位女子刻意設下的考驗，測試主角是否具備對抗不人道行為的勇氣。</p>
+
+
+
+        <h3>開發遊戲的遭遇的 BUG 與解決過程</h3>
+
+        <div class="bug-card">
+            <h4>認清技術現況</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：剩下的最後兩週，我先釐清自己在 PlayCanvas 與 Viverse Extension 上的掌握程度，發現目前僅有能力設計密室逃脫類型的遊戲，所以朝這方向進行。但實際製作還是問題百出，尤其是將作品上傳到 VIVERSE WORLD 後，Camera 和 Player 會被強制接管，雖然省下了角色控制與鏡頭運鏡這兩個大魔王，但也讓很多功能無法透過 JavaScript 實現。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：針對自己所掌握的能力，選擇適合的遊戲類型進行開發。</p>
+            </div>
+        </div>
+
+        <div class="bug-card">
+            <h4>角色動作限制</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：密室逃脫遊戲常見的爬行、互動等動作無法透過內建角色實現，嚴重影響沉浸感。畢竟密室逃脫本質上是一種以身體行動推動邏輯思維的心理訓練，這些動作在虛擬遊戲中還是難以還原。此外，角色外觀也與場景不符，例如遊戲背景是精神病院，但角色卻穿著時尚又現代的衣服，實在跳戲。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：目前我無力解決，只能期待未來 VIVERSE 開放更彈性的角色自訂功能。現階段也只能接受目前只有第三人稱視角設計，若能提供第一人稱、上帝視角等，會讓運鏡更多元。</p>
+            </div>
+            <img src="Suffer\Suffer (5).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <div class="bug-card">
+            <h4>相機穿透</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：這幾乎讓我崩潰。在密室中，玩家要輸入密碼打開箱子或櫃子，取得關鍵物件。理想狀況下，需控制 Raycast 阻擋點擊，確保打開櫃子前無法點選裡面物品。但 VIVERSE 的預設相機 Raycast 完全無視這設定，玩家甚至能直接隔空點擊取得物件。我嘗試不斷在物件外層加碰撞殼，結果完全無效。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：後來我上廁所時靈光一現（真的！），VIVERSE EXTENSION 的點擊邏輯是：物件必須有 Collision 才能被點擊。因此我寫了一段腳本，讓正確輸入密碼時才啟用該物件的 Collision，這樣就能確保只有在解開密碼後才能互動，成功解決問題。</p>
+            </div>
+            <img src="Suffer\Suffer (1).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <h4></h4>
+        <p><strong>遭遇問題</strong>：VIVERSE WORLD 會強制接管相機，並支援 zoom in/out 及 orbit，導致我辛苦設計的謎題被玩家一眼看穿。</p>
+        <p><strong>解決方法</strong>：這個算是比較好解決，我加了個天花板遮住畫面上方即可。但也因此每次要編輯物件時都得手動關閉天花板，否則會被擋住很難操作。話說回來，這種自由視角的確能提升探索感，但也容易導致 3D 暈。我自己測試時就常常暈到想吐。</p>
+
+        <div class="bug-card">
+            <h4>相機被接管</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：VIVERSE WORLD 會強制接管相機，並支援 zoom in/out 及 orbit，導致我辛苦設計的謎題被玩家一眼看穿。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：這個算是比較好解決，我加了個天花板遮住畫面上方即可。但也因此每次要編輯物件時都得手動關閉天花板，否則會被擋住很難操作。話說回來，這種自由視角的確能提升探索感，但也容易導致 3D 暈。我自己測試時就常常暈到想吐。</p>
+            </div>
+            <img src="Suffer\Suffer (2).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+        <div class="bug-card">
+            <h4>劇情與導引介面</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：我希望能在遊戲開始前加入劇情介紹，讓敘事更完整。在 PlayCanvas 裡用腳本是做得到的，但上傳 VIVERSE WORLD 後就失效，VIVERSE EXTENSION 看起來也沒這功能。不過我發現有其他作品成功做到，就不確定他們怎麼實現。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：這部分我實驗了非常久，後來發現如果用純 JavaScript 寫，會被 VIVERSE 平台重新定義導致排版跑掉。後來我改用 HTML DOM 強制全螢幕蓋住畫面，雖然不是理想效果，但總算能勉強實現劇情開場與結尾說明，增強敘事與代入感。</p>
+            </div>
+            <img src="Suffer\Suffer (7).jpg" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+    
+        <div class="bug-card">
+            <h4>密碼輸入機制</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：PlayCanvas 和 Viverse EXTENSION 都沒提供 Input Field 工具，一開始我找到官方的 <a href="https://developer.playcanvas.com/tutorials/ui-text-input/" target="_blank" rel="noopener noreferrer">UI Text Input 教學腳本</a>，高興得要命，結果上傳到 VIVERSE WORLD 後卻發現輸入欄點擊沒反應。最後才知道是因為 HTML 元素位置被 VIVERSE 重新定義，導致 input 出現在畫面外。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：本來差點就放棄這個功能，後來靈機一動想到瀏覽器的 window.alert 或 prompt 可以當成輸入機制。詢問 AI 後測試成功，總算讓我把這個功能保住了。</p>
+            </div>
+            <img src="Suffer\Suffer (8).jpg" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <div class="bug-card">
+            <h4>物件隨意滑動</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：我在遊戲中設計了一些可被推動的物件，讓使用者透過「撞擊」推動它們來尋找線索。不過當我為這些物件加上 Collision 和 Rigidbody 後，它們竟然會自己慢慢滑動，彷彿自己有了意志……。這讓我困惑，後來推測可能是物件一開始擺放時就有些微傾斜，或是受到附近其他物體的擠壓與物理影響，導致一進入遊戲它們就開始移動，甚至提早觸發機關。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：老實說，我最後還是沒找到根本原因。但為了能準時交卷，我只好用點小技巧來遮掩問題：在可動機關的後方加上一個可動物件來頂住它，在前方則放上一個透明的 Static 物件來擋住，有點像是給它裝了個「門檔」。雖然聽起來挺土法煉鋼的，但至少達到了我不想讓機關一開始就滑開的目的。對我這個還不熟 3D 遊戲引擎的人來說，這或許是下下策，但為了交卷，能穩定運作就先這樣吧！</p>
+            </div>
+            <img src="Suffer\Suffer (3).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <div class="bug-card">
+            <h4>逃出後的結尾畫面無法顯示</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：理論上，當玩家成功逃出密室後，遊戲會跳出一個故事結尾畫面，告訴他們「恭喜逃脫成功」。這個畫面我原本設計得跟操作導引介面差不多，想說既然可以套用同樣的腳本和圖片，應該沒問題。但我萬萬沒想到的是，在 VIVERSE WORLD 中點了「全螢幕」後，按下「逃出」卻完全看不到結尾畫面。後來才發現，當進入全螢幕模式後，HTML 顯示會完全被鎖定，導致我無法控制畫面內容。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：離交卷只剩一晚的時候，我靈光一閃，想到自己之前做密碼輸入時用過的 window.alert()。這個東西會跳出一個系統視窗，而且會強制退出全螢幕。於是我讓遊戲在逃脫成功時先彈出一個 alert，只要全螢幕狀態被打破，我的結尾 HTML 就能重新掌控畫面，成功顯示出來。雖然不是什麼高端解法，但救急很好用，感謝 window.alert！</p>
+            </div>
+            <img src="Suffer\Suffer (9).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <div class="bug-card">
+            <h4>測試流程耗時，影響開發效率</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：每次測試作品都必須重新上傳到 VIVERSE WORLD，光是這個過程就要花 1 到 2 分鐘，讓我每次小改一個東西都得等好久。不僅開發效率被嚴重拖慢，也沒辦法即時看到修改後的效果。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：這個我真的沒輒，只能說希望未來 VIVERSE WORLD 能提供本地測試的功能吧……目前就只能忍耐。</p>
+            </div>
+            <img src="Suffer\Suffer (4).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
+        <div class="bug-card">
+            <h4>PlayCanvas 免費空間限制</h4>
+            <div class="bug-section">
+                <p><strong>遭遇問題</strong>：我一開始想把遊戲做得更豐富一點，所以加了很多物件和細節，結果沒多久就把 PlayCanvas 免費的 1GB 空間用光了。這時我才知道原來免費帳號是有空間上限的……對我這種剛接觸平台的新手來說更是困擾，因為我常會先開一些空白專案來測試程式碼，確定沒錯後再搬到主專案裡，結果這樣空間一下就被吃掉了。</p>
+            </div>
+            <div class="bug-section">
+                <p><strong class="solution">解決方法</strong>：不打算為了得獎花錢買空間，所以我能做的就是節省使用：盡可能使用低多邊形（low-poly）的素材、貼圖也都壓到最低。後來我看其他經驗比較豐富的團隊就明白了，他們會把重點放在「互動設計」而不是「視覺細節」上。畢竟 VIVERSE 這個平台本來就不適合做大型或精緻的遊戲，過度追求畫面反而會影響效能。這也是我交卷後才真正體悟到的一課。</p>
+            </div>
+            <img src="Suffer\Suffer (6).JPG" alt="Camera Bug Screenshot" class="screenshot" />
+        </div>
+
+
     </section>
 
     <!-- 素材來源 -->
@@ -1194,18 +1202,32 @@
                 <strong>OFL 1.1（Open Font License 1.1）</strong>：專門為「字型」設計的自由授權條款，目的是讓字型可以自由使用、修改與分享，同時保護原作者的權益。
             </li>
             <li>
-                <strong>購買可商用</strong>：購買後可獲得永久商用授權，不過不得將字型原始檔案上傳到網站中，可以把字型設計在素材中，在把素材上傳到任意地方。作者是字型控，看到中文字型常常會忍不住要買，買了這麼多不拿幾個來用用就太可惜了XD。
+                <strong>購買可商用</strong>：購買後可獲得永久商用授權，不過不得將字型原始檔案上傳到網站中，可以把字型設計在素材中，再把素材上傳到任意地方。作者是字型控，看到中文字型常常會忍不住要買，買了這麼多不拿幾個來用用就太可惜了XD。
             </li>
           </ul>
         </div>
     </section>
 
     <!-- 作者 -->
+
     <div id="author" class="section-divider" style="background-image: url('images/outro-next.jpg');">
         <h2>作者簡介</h2>
     </div>
+
     <section>
-        <p>TBD</p>
+    <div class="author-section">
+        <img src="images/author.jpg" alt="作者照片">
+        <div class="author-info">
+            <p>我是 <strong>Shengle</strong>，一名硬體工程師，喜歡到處走走的 SUPER I 人，每天都要和 AI 聊天，無可救藥的水豚控。熱愛攝影、文學創作與登山健行，學生時期熱衷參與賽事，包括網界博覽會環境議題網頁設計獎、白沙文學獎、桃園縣文藝創作獎、痞客邦與八大電視台照片徵選等獎項。目前以「撰風」之名於網路創作，經營個人網站 <a href="https://jfsblog.com/" target="_blank">撰風 I 人旅行誌</a>，並為 <a href="https://strolltimes.com/" target="_blank">漫步時光：台灣活動資訊</a> 的編輯。</p>
+        </div>
+        <p>
+            🔗 個人網站：<a href="https://jfsblog.com/" target="_blank">撰風 I 人旅行誌</a></br>
+            🔗 合作編輯：<a href="https://strolltimes.com/" target="_blank">漫步時光：台灣活動資訊</a></br>
+            📘 Facebook：<a href="https://www.facebook.com/strolltimes/" target="_blank">全台活動資訊分享</a></br>
+            🎥 YouTube：<a href="https://www.youtube.com/@%E6%BC%AB%E6%AD%A5%E6%99%82%E5%85%89" target="_blank">漫步時光</a></br>
+            🥾 健行筆記：<a href="https://hiking.biji.co/index.php?q=member&member=1560945" target="_blank">撰風旅食</a>
+        </p>
+    </div>
     </section>
 
     <!-- footer -->
