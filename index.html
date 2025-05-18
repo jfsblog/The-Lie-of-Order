@@ -1278,5 +1278,28 @@
         &copy; 2025 倒反的秩序｜作者保留所有權利｜<a href="https://jfsblog.com/" target="_blank">Shengle Wang</a>
     </footer>
 
+    <!-- 回到最上方 -->
+    <button id="backToTopBtn" title="回到最上方">⬆</button>
+
+    <script>
+        const btn = document.getElementById("backToTopBtn");
+
+        // 監聽滾動事件，顯示或隱藏按鈕
+        window.onscroll = function () {
+        if (document.documentElement.scrollTop > 100 || document.body.scrollTop > 100) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+        };
+
+        // 點擊按鈕時平滑滾動回頂部
+        btn.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+        };
+    </script>
 </body>
 </html>

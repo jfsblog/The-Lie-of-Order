@@ -339,47 +339,72 @@ footer a:hover {
       color: #e0e0e0;
     }
 
-
-/* 手機版樣式 */
-@media screen and (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    } 
-    .navbar a {
-        float: none;
+    #backToTopBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        margin: auto;
+        background-color: #00bcd4;
+        color: white;
+        border: none;
+        border-radius: 50%; /* 圓形關鍵 */
         display: none;
-        width: 100%;
-        text-align: left;
+        cursor: pointer;
+        font-size: 20px;
+        box-shadow: 0 4px 12px rgba(0, 188, 212, 0.4);
+        transition: all 0.3s ease;
+        z-index: 9999;
     }
 
-    .navbar.responsive a {
-        display: block;
+    #backToTopBtn:hover {
+        background-color: #00acc1;
+        box-shadow: 0 6px 16px rgba(0, 188, 212, 0.6);
+        transform: scale(1.1);
     }
 
-    .hamburger {
-        display: block;
-    }
-    .author-section img {
-        max-width: 100%;
-        height: auto;
-    }
 
-    .content-block {
-        flex-direction: column;
-    }
+    /* 手機版樣式 */
+    @media screen and (max-width: 768px) {
+        header h1 {
+            font-size: 2.2rem;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        } 
+        .navbar a {
+            float: none;
+            display: none;
+            width: 100%;
+            text-align: left;
+        }
 
-    .content-block img {
-        max-width: 100%;
-    }
+        .navbar.responsive a {
+            display: block;
+        }
 
-    .zebra-block {
-        flex-direction: column;
-    }
-    .zebra-block img,
-    .zebra-text {
-        width: 100%;
-        border-right: none;
-    }
+        .hamburger {
+            display: block;
+        }
+        .author-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .content-block {
+            flex-direction: column;
+        }
+
+        .content-block img {
+            max-width: 100%;
+        }
+
+        .zebra-block {
+            flex-direction: column;
+        }
+        .zebra-block img,
+        .zebra-text {
+            width: 100%;
+            border-right: none;
+        }
 }
